@@ -1,0 +1,28 @@
+<div class="header">
+  <button (click)="navToList()" class="button-default">Back to the List</button>
+</div>
+
+<div [formGroup]="form" class="body">
+  <div class="item-self">
+    <!-- <input type="checkbox"> -->
+    Description: <input class="item-desc" formControlName="description">
+    <p></p>
+    Amount: <input class="item-desc" formControlName="amount">
+    <p></p>
+    CreateTime: <input class="item-desc" formControlName="createTime">
+    <p></p>
+    Type: <input class="item-desc" formControlName="type">
+  </div>
+</div>
+
+<div class="footer">
+  <div>
+    <span *ngIf="item.id && !isNewItem()">
+      <button (click)="delete()" [disabled]="form.invalid" class="button-blue">delete</button>
+      Created on {{item.createTime | date}}
+    </span>
+  </div>
+  <div>
+    <button (click)="save()" [disabled]="form.invalid" class="button-blue">Save</button>
+  </div>
+</div>
